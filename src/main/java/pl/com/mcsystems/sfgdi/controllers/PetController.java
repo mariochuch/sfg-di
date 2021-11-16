@@ -1,7 +1,7 @@
 package pl.com.mcsystems.sfgdi.controllers;
 
 import org.springframework.stereotype.Controller;
-import pl.com.mcsystems.sfgdi.services.PetService;
+import com.springframework.pets.PetService;
 
 @Controller
 public class PetController {
