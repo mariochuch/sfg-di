@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
+import pl.com.mcsystems.sfgdi.repositories.EnglishGreetingRepository;
+import pl.com.mcsystems.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import pl.com.mcsystems.sfgdi.services.*;
 
 @Configuration
@@ -15,10 +17,15 @@ public class GreetingsServiceConfig {
         return new I18nSpanishService();
     }
 
+    @Bean
+    EnglishGreetingRepository englishGreetingRepository(){
+        return new EnglishGreetingRepositoryImpl();
+    }
+
     @Profile("EN")
     @Bean
-    I18nEnglishGreetingService i18mService (){
-        return new I18nEnglishGreetingService();
+    I18nEnglishGreetingService i18mService (EnglishGreetingRepository englishGreetingRepository){
+        return new I18nEnglishGreetingService(englishGreetingRepository);
     }
 
     @Primary
