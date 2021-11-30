@@ -9,7 +9,6 @@ import pl.com.mcsystems.sfgdi.repositories.EnglishGreetingRepository;
 import pl.com.mcsystems.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import pl.com.mcsystems.sfgdi.services.*;
 
-@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingsServiceConfig {
